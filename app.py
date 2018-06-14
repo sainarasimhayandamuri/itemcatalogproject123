@@ -503,11 +503,11 @@ def show_items_in_category(category_id):
 def edit_category(category_id):
     """Edit a category."""
 
-    category = session.query(Category).filter_by(id=category_id).first()
-
     if 'username' not in login_session:
         flash("Please log in to continue.")
         return redirect(url_for('login'))
+
+    category = session.query(Category).filter_by(id=category_id).first()
 
     if not exists_category(category_id):
         flash("We are unable to process your request right now.")
@@ -537,11 +537,11 @@ def edit_category(category_id):
 def delete_category(category_id):
     """Delete a category."""
 
-    category = session.query(Category).filter_by(id=category_id).first()
-
     if 'username' not in login_session:
         flash("Please log in to continue.")
         return redirect(url_for('login'))
+
+    category = session.query(Category).filter_by(id=category_id).first()
 
     if not exists_category(category_id):
         flash("We are unable to process your request right now.")
